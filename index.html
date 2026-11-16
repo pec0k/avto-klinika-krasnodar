@@ -43,11 +43,11 @@
     }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    .booking-cta { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 50px; height: auto; padding: 7px 16px; line-height: 1.05; white-space: nowrap; }
+    .booking-cta { white-space: nowrap; }
     .booking-cta__label { font-size: 14px; font-weight: 600; }
-    .booking-cta__phone { font-size: 12px; font-weight: 400; opacity: .82; }
     .nav__actions .booking-cta { min-width: 168px; height: auto; font-size: var(--t-small); padding-inline: 12px; }
     .btn-row .booking-cta { min-width: 204px; }
+    .form__note { color: var(--muted); font-size: var(--t-small); }
   </style>
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
   <link rel="modulepreload" href="assets/moments/moments.js">
@@ -63,10 +63,10 @@
         <div class="nav__item"><a class="nav__link" href="#services">Услуги</a></div>
         <div class="nav__item"><a class="nav__link" href="#parts">Запчасти</a></div>
         <div class="nav__item"><a class="nav__link" href="#before-you-visit">Перед визитом</a></div>
-        <div class="nav__item"><a class="nav__link" href="#visit">Адрес</a></div>
+        <div class="nav__item"><a class="nav__link" href="#booking">Запись</a></div>
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary booking-cta" href="tel:+79183806911" aria-label="Записаться по телефону +7 918 380-69-11"><span class="booking-cta__label">Записаться</span><span class="booking-cta__phone">+7 918 380-69-11</span></a>
+        <a class="btn btn--primary booking-cta" href="#booking"><span class="booking-cta__label">Записаться</span></a>
       </div>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Открыть меню">
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -83,7 +83,7 @@
             <h1 id="hero-h">Автосервис в Краснодаре</h1>
             <p class="t-lead">Кузовной ремонт, обслуживание двигателя и ходовой части.</p>
             <div class="btn-row">
-              <a class="btn btn--primary booking-cta" href="tel:+79183806911" aria-label="Записаться по телефону +7 918 380-69-11"><span class="booking-cta__label">Записаться</span><span class="booking-cta__phone">+7 918 380-69-11</span></a>
+              <a class="btn btn--primary booking-cta" href="#booking"><span class="booking-cta__label">Записаться</span></a>
               <a class="btn btn--secondary" href="#services">Показать услуги</a>
             </div>
           </div>
@@ -134,6 +134,53 @@
       </div>
     </section>
 
+    <section class="section" id="booking" aria-labelledby="booking-h">
+      <div class="wrap grid grid--middle">
+        <div class="span-4">
+          <p class="hero-notice">Онлайн-запись</p>
+          <h2 id="booking-h">Расскажите, что нужно сделать</h2>
+          <p>Оставьте контакты и выберите услугу — администратор сможет уточнить детали и согласовать время.</p>
+          <p><a class="link" href="tel:+79183806911">Или позвоните: +7 918 380-69-11</a></p>
+        </div>
+        <div class="span-7 start-6">
+          <form class="form" id="booking-form" data-demo-form data-fix="Заполните все обязательные поля.">
+            <label class="field">Ваше имя *
+              <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+            </label>
+            <label class="field">Телефон для связи *
+              <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 900 000-00-00" pattern="[+0-9() -]{10,}" required>
+            </label>
+            <label class="field">Автомобиль
+              <input name="car" type="text" autocomplete="off" placeholder="Марка и модель">
+            </label>
+            <label class="field">Какая услуга нужна? *
+              <select name="service" required>
+                <option value="" selected disabled>Выберите услугу</option>
+                <option>Кузовной ремонт</option>
+                <option>Ремонт двигателя</option>
+                <option>Ходовая часть</option>
+                <option>Замена масла</option>
+                <option>Шиномонтаж</option>
+                <option>Эвакуатор</option>
+                <option>Другая услуга</option>
+              </select>
+            </label>
+            <label class="field">Удобная дата
+              <input name="date" type="date">
+            </label>
+            <label class="field field--full">Опишите задачу
+              <textarea name="details" rows="4" placeholder="Например: стук в подвеске при повороте"></textarea>
+            </label>
+            <div class="btn-row">
+              <button class="btn btn--primary" type="submit">Оставить заявку</button>
+            </div>
+            <p class="form__status" data-form-status aria-live="polite"></p>
+            <p class="form__note">Демо-анкета: данные пока никуда не отправляются.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="before-you-visit" data-moment="word-highlight" aria-labelledby="before-you-visit-h">
       <div class="wrap">
         <h2 id="before-you-visit-h">Перед визитом</h2>
@@ -168,5 +215,6 @@
   <script type="module" src="assets/system.js"></script>
   <script type="module" src="assets/layout/layout.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
+  <script type="module" src="assets/booking-demo.js"></script>
 </body>
 </html>

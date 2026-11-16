@@ -9,6 +9,7 @@
 assets/*
 !assets/system.css
 !assets/system.js
+!assets/booking-demo.js
 !assets/ui/
 !assets/motion/
 !assets/backgrounds/

@@ -43,6 +43,11 @@
     }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .booking-cta { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 50px; height: auto; padding: 7px 16px; line-height: 1.05; white-space: nowrap; }
+    .booking-cta__label { font-size: 14px; font-weight: 600; }
+    .booking-cta__phone { font-size: 12px; font-weight: 400; opacity: .82; }
+    .nav__actions .booking-cta { min-width: 168px; height: auto; font-size: var(--t-small); padding-inline: 12px; }
+    .btn-row .booking-cta { min-width: 204px; }
   </style>
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
   <link rel="modulepreload" href="assets/moments/moments.js">
@@ -61,7 +66,7 @@
         <div class="nav__item"><a class="nav__link" href="#visit">Адрес</a></div>
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary" href="#visit">Построить маршрут<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+        <a class="btn btn--primary booking-cta" href="tel:+79183806911" aria-label="Записаться по телефону +7 918 380-69-11"><span class="booking-cta__label">Записаться</span><span class="booking-cta__phone">+7 918 380-69-11</span></a>
       </div>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Открыть меню">
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -78,7 +83,7 @@
             <h1 id="hero-h">Автосервис в Краснодаре</h1>
             <p class="t-lead">Кузовной ремонт, обслуживание двигателя и ходовой части.</p>
             <div class="btn-row">
-              <a class="btn btn--primary" href="#visit">Построить маршрут<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+              <a class="btn btn--primary booking-cta" href="tel:+79183806911" aria-label="Записаться по телефону +7 918 380-69-11"><span class="booking-cta__label">Записаться</span><span class="booking-cta__phone">+7 918 380-69-11</span></a>
               <a class="btn btn--secondary" href="#services">Показать услуги</a>
             </div>
           </div>
